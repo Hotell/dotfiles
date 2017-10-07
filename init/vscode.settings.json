@@ -1,0 +1,51 @@
+{
+  "terminal.integrated.fontSize": 14,
+
+  "editor.codeLens": true,
+  "editor.snippetSuggestions": "top",
+  "editor.fontSize": 14,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 22,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.rulers": [120],
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+
+  "workbench.editor.showTabs": false,
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "vscode-icons",
+
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/*.js.map": true
+  },
+  "files.trimTrailingWhitespace": true,
+
+  "typescript.format.enable": false,
+  "javascript.format.enable": false,
+
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "tslint.enable": false,
+  "tslint.autoFixOnSave": true,
+  "eslint.enable": false,
+  "flow.enabled": false,
+
+  "prettier.singleQuote": true,
+  "prettier.semi": false,
+  "prettier.printWidth": 120,
+  "prettier.trailingComma": "es5",
+
+  "tsimporter.doubleQuotes": false,
+  "tsimporter.emitSemicolon": false,
+  "tsimporter.preferRelative": true,
+  "tsimporter.spaceBetweenBraces": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.startupEditor": "newUntitledFile"
+}

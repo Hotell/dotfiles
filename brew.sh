@@ -92,6 +92,15 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
+# managing Dock
+brew install dockutil
+
+# javascript !
+brew install node
+brew install yarn
+
+# z hopping around folders
+brew install z
 
 # Remove outdated versions from the cellar.
 brew cleanup

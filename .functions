@@ -84,6 +84,14 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
+function nserver() {
+	local port="${1:-8000}"
+	open "http://localhost:${port}/" &
+ 	# statikk is good because it won't expose hidden folders/files by default.
+ 	# npm i --global statikk
+ 	http-server --port "$port" .
+}
+
 # Start a PHP server from a directory, optionally specifying the port
 # (Requires PHP 5.4.0+.)
 function phpserver() {
@@ -100,6 +108,17 @@ function gz() {
 	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
 	printf "orig: %d bytes\n" "$origsize";
 	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
+}
+
+function localip(){
+	function _localip(){ echo "📶  "$(ipconfig getifaddr "$1"); }
+	export -f _localip
+	local purple="\x1B\[35m" reset="\x1B\[m"
+	networksetup -listallhardwareports | \
+		sed -r "s/Hardware Port: (.*)/${purple}\1${reset}/g" | \
+		sed -r "s/Device: (en.*)$/_localip \1/e" | \
+		sed -r "s/Ethernet Address:/📘 /g" | \
+		sed -r "s/(VLAN Configurations)|==*//g"
 }
 
 # Syntax-highlight JSON strings or files
@@ -196,4 +215,32 @@ function o() {
 # small enough for one screen.
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+
+# Copy w/ progress
+cp_p () {
+  rsync -WavP --human-readable --progress $1 $2
+}
+
+# Setup forked repo on github
+# Setup forked repo on github
+function sfork() {
+	if [ $# -eq 0 ]; then
+		echo "ERROR: you need to provide origin repo url and your repo  <your repo> <origin project name>";
+		return 1;
+	else
+    local myFork="git@github.com:Hotell/$1.git"
+    local originalFork="git@github.com:$2/$1.git"
+
+    git clone "$myFork"
+    cd $1
+    # add remote to original project
+    git remote add upstream "$originalFork"
+    # fetch headers
+    git fetch upstream
+    # point master branch to original master so we can pull from original project and update our fork
+    git branch --set-upstream-to=upstream/master master
+		code .;
+	fi;
 }

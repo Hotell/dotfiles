@@ -347,14 +347,13 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 ###############################################################################
 
 dockutil --no-restart --remove all
-dockutil --no-restart --add "/Applications/Finder.app"
 dockutil --no-restart --add "/Applications/Google Chrome.app"
 dockutil --no-restart --add "/Applications/Safari.app"
 dockutil --no-restart --add "/Applications/Firefox.app"
 dockutil --no-restart --add "/Applications/Mail.app"
 dockutil --no-restart --add "/Applications/Calendar.app"
 dockutil --no-restart --add "/Applications/Utilities/Terminal.app"
-dockutil --no-restart --add "/Applications/iTerm.app.app"
+dockutil --no-restart --add "/Applications/iTerm.app"
 dockutil --no-restart --add "/Applications/Visual Studio Code.app"
 dockutil --no-restart --add "/Applications/Affinity Designer.app"
 dockutil --no-restart --add "/Applications/System Preferences.app"

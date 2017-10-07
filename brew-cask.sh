@@ -39,6 +39,7 @@ brew cask install firefox
 # brew cask install torbrowser
 
 # less often
+brew cask install appcleaner
 brew cask install disk-inventory-x
 brew cask install screenflow
 brew cask install vlc

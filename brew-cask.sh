@@ -14,7 +14,7 @@ brew cask install spectacle
 # brew cask install gyazo
 # brew cask install 1password
 brew cask install rescuetime
-# brew cask install google-drive-file-stream
+brew cask install google-drive-file-stream
 brew cask install flux
 
 # dev
@@ -31,20 +31,20 @@ brew cask install virtualbox
 
 # browsers
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install firefox
-# brew cask install google-chrome-canary
-# brew cask install firefoxnightly
+brew cask install firefoxdeveloperedition
 # brew cask install webkit-nightly
 # brew cask install chromium
 # brew cask install torbrowser
 
 # less often
 brew cask install appcleaner
-brew cask install disk-inventory-x
 brew cask install screenflow
 brew cask install vlc
-brew cask install gpgtools
 brew cask install licecap
+brew cask install gpgtools
+# brew cask install disk-inventory-x
 # brew cask install utorrent
 
 brew cask install spotify
@@ -57,3 +57,5 @@ brew cask install font-fira-code
 
 # File Multi Tool 5
 # Phosphor
+# Affinity Designer
+# Lightshoot Screenshot

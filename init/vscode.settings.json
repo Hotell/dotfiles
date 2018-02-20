@@ -9,7 +9,7 @@
   "editor.lineHeight": 22,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
-  "editor.rulers": [120],
+  "editor.rulers": [100,120],
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
 
@@ -32,14 +32,14 @@
   "typescript.referencesCodeLens.enabled": true,
   "typescript.tsdk": "node_modules/typescript/lib",
 
-  "tslint.enable": false,
   "tslint.autoFixOnSave": true,
+  "tslint.enable": false,
   "eslint.enable": false,
   "flow.enabled": false,
 
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "prettier.printWidth": 120,
+  "prettier.printWidth": 100,
   "prettier.trailingComma": "es5",
 
   "tsimporter.doubleQuotes": false,

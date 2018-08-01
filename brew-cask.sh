@@ -16,6 +16,8 @@ brew cask install spectacle
 brew cask install rescuetime
 brew cask install google-drive-file-stream
 brew cask install flux
+brew cask install turbo-boost-switcher
+brew cask install smcfancontrol
 
 # dev
 brew cask install iterm2
@@ -40,15 +42,16 @@ brew cask install firefoxdeveloperedition
 
 # less often
 brew cask install appcleaner
-brew cask install screenflow
 brew cask install vlc
 brew cask install licecap
 brew cask install gpgtools
+# brew cask install screenflow
 # brew cask install disk-inventory-x
 # brew cask install utorrent
 
 brew cask install spotify
 
+# fonts
 brew tap caskroom/fonts
 brew cask install font-fira-code
 

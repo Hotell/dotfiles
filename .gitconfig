@@ -35,6 +35,21 @@
 
 [alias]
 
+  # Run this when you want to push a branch for the first time to the remote (typically origin), e.g. git psu origin my-awesome-branch
+  publish = push --set-upstream origin
+
+  # Running git pror will do some cleanup on the origin remote via pruning.
+  pror = remote prune origin
+
+  # This will commit a file with the message you specify, e.g. git ci "awesome commit!".
+  ci = commit -m
+
+  # Running git stashes shows you all the stashes you have from stashing
+  stashes = stash list
+
+  # Running git vc cleans your git repository, so anything not in git is wiped, e.g. node_modules, settings files which aren’t supposed to be in a repo etc. So BEWARE before you run this.
+  vc = clean -dfx
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 

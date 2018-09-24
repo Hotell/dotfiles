@@ -1,10 +1,14 @@
  #!/usr/bin/env bash
 
+ ###############################################################################
+# INSTALL: npm packages
+###############################################################################
 
- # Globally install with npm
+chapter "Installing npm packages…"
 
 packages=(
   npm
+  npx
   trash-cli
   http-server
   serve

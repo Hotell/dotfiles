@@ -81,7 +81,7 @@ You could also use `~/.extra` to override settings, functions and aliases from m
 When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae, your AppStore apps and npm global packages:
 
 ```bash
-./execute-order-66.sh
+cd ~/dotfiles && ./execute-order-66.sh
 ```
 
 **NOTE:**

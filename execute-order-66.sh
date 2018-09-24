@@ -50,6 +50,44 @@ fi
 
 chapter "Installing Dependencies…"
 
+# -----------------------------------------------------------------------------
+# XCode
+# -----------------------------------------------------------------------------
+if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
+	test -d "${xpath}" && test -x "${xpath}" ; then
+	print_success_muted "Xcode already installed. Skipping."
+else
+	step "Installing Xcode…"
+	xcode-select --install
+	print_success "Xcode installed!"
+fi
+
+if [ ! -d "$HOME/.bin/" ]; then
+	mkdir "$HOME/.bin"
+fi
+
+# -----------------------------------------------------------------------------
+# Homebrew
+# -----------------------------------------------------------------------------
+if ! [ -x "$(command -v brew)" ]; then
+	step "Installing Homebrew…"
+	curl -fsS 'https://raw.githubusercontent.com/Homebrew/install/master/install' | ruby
+	export PATH="/usr/local/bin:$PATH"
+	print_success "Homebrew installed!"
+else
+	print_success_muted "Homebrew already installed. Skipping."
+fi
+
+if brew list | grep -Fq brew-cask; then
+	step "Uninstalling old Homebrew-Cask…"
+	brew uninstall --force brew-cask
+	print_success "Homebrew-Cask uninstalled!"
+fi
+
+###############################################################################
+# INSTALL: Apps and binaries && npm globals
+###############################################################################
+
 if [ -e brew.sh ]; then
 	cd "$(dirname "${BASH_SOURCE[0]}")" \
 		&& . "brew.sh"
@@ -66,6 +104,11 @@ else
 	exit 1
 fi
 
+
+###############################################################################
+# SETUP: Directories
+###############################################################################
+
 DIRECTORIES=(
     $HOME/Projects/devel
     $HOME/Projects/work
@@ -80,4 +123,5 @@ done
 ###############################################################################
 # ⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️⚛️ 👀🔥
 ###############################################################################
+
 e-order-66-done

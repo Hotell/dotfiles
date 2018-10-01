@@ -105,8 +105,13 @@ brew install mas
 brew install dockutil
 
 # javascript !
+
 brew install node@8
-brew install yarn
+# You'll need to add node explictly to path 👉
+# echo 'export PATH="/usr/local/opt/node@8/bin:$PATH"' >> ~/.bash_profile
+
+# We preffer to instal yarn via `npm i -g yarn` because yarn brew will isntall latest node as well which overrides LTS version
+# brew install yarn
 
 # z hopping around folders
 brew install z

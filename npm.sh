@@ -9,6 +9,7 @@ chapter "Installing npm packages…"
 packages=(
   npm
   npx
+  yarn
   trash-cli
   http-server
   serve

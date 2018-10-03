@@ -18,10 +18,10 @@ You can clone the repository wherever you want.
 The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
-cd ~/Projects &&
-git clone https://github.com/hotell/dotfiles.git &&
-ln -s ~/Projects/dotfiles ~/dotfiles &&
-cd dotfiles &&
+mkdir ~/Projects && cd $_ && \
+git clone https://github.com/hotell/dotfiles.git && \
+ln -s ~/Projects/dotfiles ~/dotfiles && \
+cd dotfiles && \
 source bootstrap.sh
 ```
 
@@ -42,7 +42,7 @@ set -- -f; source bootstrap.sh
 To install these dotfiles without Git:
 
 ```bash
-cd; curl -#L https://github.com/hotell/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,.osx,LICENSE-MIT.txt}
+cd; curl -#L https://github.com/hotell/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,LICENSE-MIT.txt,swag,bootstrap.sh,execute-order-66.sh,npm.sh,brew.sh,utils.sh}
 ```
 
 To update later on, just run that command again.

@@ -138,6 +138,9 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
 
+# Make your Mac sleep withouth battery drain when on battery > disconnect from the Internet while it's on sleep
+sudo pmset -b tcpkeepalive 0
+
 # Remove the sleep image file to save disk space
 sudo rm /private/var/vm/sleepimage
 # Create a zero-byte file instead…
@@ -835,7 +838,7 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 ###############################################################################
 
 # Disable signing emails by default
-defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
+# defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
 
 ###############################################################################
 # Opera & Opera Developer                                                     #
@@ -937,4 +940,5 @@ for app in "Activity Monitor" \
 	"iCal"; do
 	killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+print_success "Done. Note that some of these changes require a logout/restart to take effect."

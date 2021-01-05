@@ -224,23 +224,46 @@ cp_p () {
 }
 
 # Setup forked repo on github
-# Setup forked repo on github
-function sfork() {
+function setup_fork() {
 	if [ $# -eq 0 ]; then
-		echo "ERROR: you need to provide origin repo url and your repo  <your repo> <origin project name>";
+		echo "ERROR: provide original repo <username/reponame>."
+    echo "Usage: sfork <original github user handle>/<repo name>";
+    echo "Example: sfork developit/redaxios -> this will setup your fork of developit/redaxios"
 		return 1;
 	else
-    local myFork="git@github.com:Hotell/$1.git"
-    local originalFork="git@github.com:$2/$1.git"
 
+    # Set delimiter
+    IFS="/"
+    #Read the split words into an array based on delimiter
+    read -a strarr <<< $1
+
+    local repoOwner=${strarr[0]}
+    local repoName=${strarr[1]}
+
+    if [[ ! -n $repoOwner || ! -n $repoName ]]; then
+      echo "ERROR: username or reponame are missing"
+      return 1
+    fi;
+
+    local originalRepo="git@github.com:$repoOwner/$repoName.git"
+    local myFork="git@github.com:Hotell/$repoName.git"
+
+    echo "cloning $myFork ...";
     git clone "$myFork"
-    cd $1
+    echo "cloning DONE!";
+
+
+    echo "seting up remote - upstream";
+    cd $repoName
+
     # add remote to original project
-    git remote add upstream "$originalFork"
+    git remote add upstream "$originalRepo"
     # fetch headers
     git fetch upstream
     # point master branch to original master so we can pull from original project and update our fork
     git branch --set-upstream-to=upstream/master master
+
+    echo "Repo ready! opening project in VSCode...";
 		code .;
 	fi;
 }
